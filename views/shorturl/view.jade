@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  legend 
+    =legendmsg
+  
+  p
+    a(class='btn btn-primary', href='/shorturl/new') + New Short url
+  
+  
+    - for (var d in shorturls)
+     div.well
+        p.lead
+            =shorturls[d]
+        p
+            =longurls[d]
+        div.btn-group
+            a(class='btn btn-mini btn-warning destroy', href='/shorturl/' + shorturls[d]) <i class="icon-trash icon-white"></i> Delete
+            

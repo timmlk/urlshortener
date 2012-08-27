@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    legend New Short Url
+    small Enter a request for a desired short url or let the system generate one.
+    form(method='post', action='/shorturl')
+        input(name='_method', value='POST', type='hidden')
+        div.control-group
+            label(for='url').control-label URL:
+            div.controls
+                input(name='url', type='text', value='', id='url')
+        div.control-group
+            label(for='shorturl').control-label Short URL:
+            div.controls
+                input(name='shorturl', type='text', value='', id='shorturl')
+        div.control-group
+            div.controls
+                input(type='submit', value='Save').btn.btn-primary
