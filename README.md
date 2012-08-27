@@ -3,7 +3,8 @@ urlshortener
 
 Basic rest like url shortener 
 
-Implemented with a REST like interface.
+Implemented Node.js with Express.
+The app exposes a REST like interface.
 
 The app uses redis for persistence and requires a running redis server on default port(6379) and host(127.0.0.1).
 The app will to some extend respond to accept headers in the clients, so that if the client sends accept: application/json 
