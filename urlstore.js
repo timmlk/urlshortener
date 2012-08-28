@@ -1,5 +1,9 @@
-var redis = require("redis"),  client = redis.createClient(), sys = require('util');
+//var redis = require("redis"),  client = redis.createClient(), 
+var sys = require('util');
+var url   = require("url").parse(process.env.OPENREDIS_URL);
+var client = require("redis").createClient(url.port, url.hostname);
 
+redis.auth(url.auth.split(":")[1]);
 var idCounter = "ID:URL";
 var urlPattern = "URL:";
 var idSetKey ="ID:SET";
