@@ -10,7 +10,7 @@
     "express": "3.0.0rc3",
     "jade": "*",
     "redis" : ">=0.7.2"
-  }
+  },
   "engines": {
     "node": "0.6.6",
     "npm":  "1.1.x"
