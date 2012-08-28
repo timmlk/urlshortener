@@ -3,7 +3,7 @@ var sys = require('util');
 var url   = require("url").parse(process.env.OPENREDIS_URL);
 var client = require("redis").createClient(url.port, url.hostname);
 
-redis.auth(url.auth.split(":")[1]);
+client.auth(url.auth.split(":")[1]);
 var idCounter = "ID:URL";
 var urlPattern = "URL:";
 var idSetKey ="ID:SET";
