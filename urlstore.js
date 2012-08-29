@@ -1,12 +1,27 @@
 var redis = require("redis");//,  client = redis.createClient(), 
 var sys = require('util');
-var url   = require("url").parse(process.env.OPENREDIS_URL);
-var client = redis.createClient(url.port, url.hostname);
 
-client.auth(url.auth.split(":")[1]);
+//var url   = require("url").parse(process.env.OPENREDIS_URL);
+var client = connect();//redis.createClient(url.port, url.hostname);
+
+
 var idCounter = "ID:URL";
 var urlPattern = "URL:";
 var idSetKey ="ID:SET";
+
+function connect(){
+	if(process.env.OPENREDIS_URL){
+		console.log("Connecting to openredis");
+		var url = require("url").parse(process.env.OPENREDIS_URL);
+		client = redis.createClient(url.port, url.hostname);
+		client.auth(url.auth.split(":")[1]);
+	}else{
+		console.log("connecting to local redis instance");
+		client = redis.createClient();
+	}
+	return client;
+}
+
 /*
  * Functions to access redis
  * Should maybe bind the functions to on a object to better facilitate testing.
